@@ -1,0 +1,45 @@
+.hero{
+  background: linear-gradient(45deg,#04859D,#00C12B);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  color: #fff;
+  min-height: 100vh;
+}
+.hero>.container{
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+}
+.hero__title{
+  width: 100%;
+  color: #fff;
+  text-align: center;
+}
+.hero__subtitle{
+  color: rgba(255,255,255,0.8);
+  text-align: center;
+}
+.hero__subtitle--bottom{
+  position: absolute;
+  bottom: 0;
+  text-align: center;
+  left: 1px;
+  right: 1px;
+}
+.hero__button{
+  width: 100px;
+  margin: auto;
+}
+.hero__subtitle--small{
+  text-align: center;
+}
+@media (min-width: 768px) {
+  .hero{
+    min-height: inherit;
+    padding-top: 175px;
+    padding-bottom: 175px;
+  }
+
+}

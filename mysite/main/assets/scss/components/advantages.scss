@@ -1,0 +1,27 @@
+.advantages{
+  padding: 24px 0;
+}
+
+@media (min-width: 768px){
+  .advantages__list{
+    display: flex;
+    flex-flow: row wrap;
+  }
+  .advantages__item{
+    flex-basis: 30%;
+  }
+  .advantages__item:not(:nth-child(3n)){
+    margin-right: 5%;
+  }
+  .advantage__title{
+    font-size: 20px;
+  }
+.advantages  .advantages__item--big{
+    flex-basis: 47.5%;
+    flex-shrink: 1;
+    margin-right: 0;
+  }
+  .advantages__item--big + .advantages__item--big{
+    margin-left: 5%;
+  }
+}

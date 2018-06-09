@@ -1,0 +1,18 @@
+.subscribe{
+  padding: 24px 0;
+}
+.subscribe__form{
+  display: flex;
+}
+.subscribe__subtitle{
+  font-size: 16px;
+  margin-top: -1rem;
+  margin-bottom: 1rem;
+}
+@media (min-width: 768px) {
+  .subscribe>.container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}

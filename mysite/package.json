@@ -1,0 +1,19 @@
+{
+  "name": "mysite",
+  "version": "1.0.0",
+  "description": "Frontend setup for site",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Serufim",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-concat-css": "^3.1.0",
+    "gulp-cssnano": "^2.1.2",
+    "gulp-django-utils": "^0.1.1",
+    "gulp-sass": "^3.2.1",
+    "merge-stream": "^1.0.1"
+  }
+}

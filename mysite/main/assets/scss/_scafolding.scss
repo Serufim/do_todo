@@ -1,0 +1,25 @@
+.container{
+  width: 100%;
+  padding: 10px;
+}
+.visibility-hidden, .visually-hidden {
+    position: absolute;
+    clip: rect(0 0 0 0);
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+}
+.title{
+  font-size: 20px;
+}
+.subtitle{
+  font-size: 17px;
+}
+@media (min-width: 768px) {
+  .title{
+    font-size: 38px;
+  }
+  .subtitle{
+    font-size: 24px;
+  }
+}

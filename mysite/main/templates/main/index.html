@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>DO TODO - Самый инновационный GTD сервис в истории</title>
+    {% load static %}
+     <link rel="stylesheet" type="text/css" href="{% static 'main.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'main/main.css' %}" />
+</head>
+<body>
+    <header class="main-header">
+        <div class="container">
+            <a href="/" class="main-header__logo">
+                DO TODO
+            </a>
+            <nav class="main-header__nav main-nav">
+                <ul class="main-nav__list">
+                    {% if not name %}
+                        <li class="main-nav__item"><a href="/accounts/login" class="main-nav__link">Войти</a></li>
+                        <li class="main-nav__item"><a href="/accounts/signup" class="main-nav__link">Регистрация</a></li>
+                    {% else %}
+                        <li class="main-nav__item"><span class="main-nav__link main-nav__link--not_hover">Привет, {{name}}</span></li>
+                        <li class="main-nav__item"><a href="/app/" class="main-nav__link">Войти в приложение</a></li>
+                        <li class="main-nav__item"><a href="/accounts/logout" class="main-nav__link">Выйти</a></li>
+                    {% endif %}
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <section class="hero">
+        <div class="container">
+            <h1 class="hero__title title">DO TODO:<br> Самый инновационный GTD сервис в истории</h1>
+            <span class="hero__subtitle subtitle">Начните вашу новую жизнь уже прямо сейчас</span>
+            <a href="#" class="hero__button button is-primary is-inverted is-outlined">Вперед!</a>
+            <span class="hero__subtitle--small">Это совершенно бесплатно</span>
+
+        </div>
+            <span class="hero__subtitle--bottom">С нами уже более 10 000 человек</span>
+            <span class="hero__hint--hint visually-hidden">*Все данные ложь, а автор - вруша</span>
+    </section>
+    <section class="about">
+        <div class="container">
+            <h2 class="about__title title ">Инновационный ассистент выведет вашу производительность на совершенно новый уровень</h2>
+            <p class="about__description">Цель нашего проекта создать действительно впечетляющий проект который бы
+                максимально удобно и качественно помогал вам в организации ващих дел.
+            </p>
+        </div>
+    </section>
+    <section class="advantages">
+        <div class="container">
+            <h2 class="advantages__title title has-text-centered">Потрясающие возможности которые уже доступны вам</h2>
+            <p class="advantages__subtitle subtitle has-text-centered">Скоро их будет еще больше</p>
+            <ul class="advantages__list">
+                <li class="advantages__item advantage box">
+                    <h3 class="advantage__title title">Полная кастомизируемость</h3>
+                    <p class="advantage__description">Наш прогрессивный подход к созданию интерфесов, позволил нам создать приложение которое может выглядеть именно так как вам нужно, без сложных настроек и других заморочек. Наши возможности действительно поражают</p>
+                </li>g
+                <li class="advantages__item advantage box">
+                    <h3 class="advantage__title title">Интеграция с другими сервисами</h3>
+                    <p class="advantage__description">Одно из самых важнейших правил GTD гласит: "Храните все в одном месте". С нашим сервисом вы можете вести дела с другими сервисами, и импортировать все в наш сервис</p>
+                </li>
+                <li class="advantages__item advantage box">
+                    <h3 class="advantage__title title">Мотивируеммость</h3>
+                    <p class="advantage__description">Замотивируйте меня придкмать сюда текст</p>
+                </li>
+                <li class="advantages__item advantages__item--big advantage box">
+                    <h3 class="advantage__title title ">Хз</h3>
+                    <p class="advantage__description">Надо что-то придумать</p>
+                </li>
+                <li class="advantages__item advantages__item--big advantage box">
+                    <h3 class="advantage__title title">Инновации и все такое</h3>
+                    <p class="advantage__description">Надеюсь оно появится</p>
+                </li>
+            </ul>
+        </div>
+    </section>
+    <section class="subscribe">
+        <div class="container">
+            <div class="subscribe__wrapper">
+                <h2 class="subscribe__title title">Готовы начать?</h2>
+                <p class="subscribe__subtitle">Подпишитесь на нашу новостную рассылку и будте всегда вкурсе последних новостей из мира GTD</p>
+             </div>
+                <form action="#" class="subscribe__form">
+                <label for="subemail" class="visually-hidden">Введите ваш email</label>
+                <input type="email" id="subemail" class="input" placeholder="ваш email">
+                <button type="submit" class="button is-primary">Подписаться</button>
+            </form>
+        </div>
+    </section>
+    <footer class="main-footer">
+        <div class="container">
+            <div class="main-footer__social-block social-block">
+                <h3 class="social-block__title title">Следите за нами во всех соц-сетях</h3>
+                <ul class="social-block__list">
+                    <li class="social-block__item">
+                        <a href="#" class="social-block__link">Вк</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="main-footer__social-block social-block">
+                <h3 class="social-block__title title">Следите за нами во всех соц-сетях</h3>
+                <ul class="social-block__list">
+                    <li class="social-block__item">
+                        <a href="#" class="social-block__link">Вк</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
