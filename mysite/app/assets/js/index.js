@@ -3,7 +3,7 @@ import App from './components/app.vue'
 import VueRouter from 'vue-router'
 import Vuex from 'vuex';
 import store from './store'
-Vue.config.devtools = true
+Vue.config.devtools = true;
 Vue.use(Vuex);
 Vue.use(VueRouter);
 
@@ -38,8 +38,11 @@ Vue.use(VueRouter);
 new Vue({
   el: '#app',
   store,
-  render: h => h(App)
-})
+  render: h => h(App),
+    mounted(){
+      store.dispatch('load')
+  }}
+);
 
 Array.prototype.remove = function(value){
 var idx = this.indexOf(value);

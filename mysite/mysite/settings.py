@@ -44,7 +44,7 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
-
+    'rest_framework',
 ]
 SITE_ID = 1
 MIDDLEWARE = [

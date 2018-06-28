@@ -20,21 +20,26 @@
         <div class="layout__application">
             <router-view></router-view>
         </div>
+        <event-bus></event-bus>
     </div>
 </template>
 
 <script>
 import Todo from './Todo/Todo.vue'
-import Matrix from './Matrix.vue'
+import Matrix from './Matrix/Matrix.vue'
+import EventBus from './EventBus.vue'
+ import {Event} from '../event';
 import VueRouter from 'vue-router'
 import { mapState } from 'vuex';
+import axios from 'axios';
+import store from "../store";
 const routes = [
   { path: '/', component: Todo },
   { path: '/matrix', component: Matrix },
-]
+];
 const router = new VueRouter({
   routes // сокращение от `routes: routes`
-})
+});
 
 export default {
   router,
@@ -43,11 +48,37 @@ export default {
     return {
     }
   },
+    methods:{
+      getCookie(name) {
+  var matches = document.cookie.match(new RegExp(
+    "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+  ));
+  return matches ? decodeURIComponent(matches[1]) : undefined;
+}
+    },
   computed: mapState({
             apps: state => state.apps
         }),
-
-  components: {}
+    mounted(){
+      Event.$on('save_data',()=>
+      {
+          let csrf =this.getCookie('csrftoken');
+          axios.interceptors.request.use(function (config) {
+    // Do something before request is sent
+    config.headers["X-CSRFToken"] = csrf;
+    return config;
+  }, function (error) {
+    // Do something with request error
+    return Promise.reject(error);
+  });
+          let req_data = {user:user_id,
+            app:JSON.stringify(store.state.apps)
+          };
+          axios.put('/app/api/'+user_id,req_data).then(resp=>{
+              Event.$emit('create_message',({msq:"Успешно сохранено",cls:"is-success"}));
+          })})
+    },
+  components: {EventBus}
 }
 
 </script>

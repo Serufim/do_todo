@@ -46,7 +46,7 @@
                     type: type.AddToMatrix,
                     new_object:JSON.stringify({msq:this.current_text,matrix:this.Matrix}),
                 });
-                this.array = store.getters.get_matrix(1);
+                this.array = store.getters.get_matrix(this.Matrix);
                 this.current_text = ""
             },
             delete_item(item){

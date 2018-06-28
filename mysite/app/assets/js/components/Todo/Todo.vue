@@ -6,7 +6,6 @@
         <div class="todo__body">
                 <exist-todo :items="todos"></exist-todo>
         </div>
-        </div>
     </div>
 </template>
 <script>

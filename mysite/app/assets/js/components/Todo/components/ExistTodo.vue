@@ -19,12 +19,12 @@
                             class="far fa-edit"></i>Изменить</a>
                     </li>
                     <li class="todo-item__option"><a @click.prevent="delete_item(item)" href="" class="todo-item__link todo-item__delete"><i
-                            class="far fa-times-circle"></i>удоли</a></li>
+                            class="far fa-times-circle"></i></a></li>
                 </ul>
             </div>
             <div v-else class="todo__item todo-item box">
                 <input type="text" v-model="item.name" class="textbox__input input">
-                <button class="todo_button button is-warning" type="submit" @click.prevent="item.editable=false">Изменить</button>
+                <button class="todo_button button is-warning" type="submit" @click.prevent="complete_edit(item)">Изменить</button>
             </div>
             <div v-if="item.open" class="sub-todo">
                 <exist-todo :items="item.subtodos"></exist-todo>
@@ -58,15 +58,24 @@ import {Event} from '../../../event';
                     subtodos:[]
                 };
                 this.items.push(newItem);
-                this.content = ""
-                Event.$emit('save_todo')
+                this.content = "";
+                Event.$emit('save_todo');
+                Event.$emit('save_data');
+                Event.$emit('create_message',({msq:"Задача успешно создана",cls:"is-success"}));
             },
             delete_item(item){
                 this.items.forEach(i=>{
                     if(i.name===item.name){
                         this.items.remove(i);
+                        Event.$emit('save_data');
+                        Event.$emit('create_message',({msq:"Задача успешно удалена",cls:"is-danger"}));
                     }
                 })
+            },
+            complete_edit(item){
+                item.editable=false;
+                Event.$emit('save_data');
+                Event.$emit('create_message',({msq:"Задача успешно изменена",cls:"is-warning"}));
             }
         }
     }
